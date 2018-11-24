@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+            http://www.directwebremoting.org/schema/spring-dwr
+            http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+<dwr:controller id="dwrController" debug="true">
+	<dwr:config-param name="activeReverseAjaxEnabled" value="true" />
+	<dwr:config-param name="pollAndCometEnabled" value="true" />
+</dwr:controller>
+
+<bean id="dwrMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<property name="alwaysUseFullPath" value="true" />
+	<property name ="order" value="1" />
+	<property name="mappings">
+		<props>
+			<prop key="/dwr/**">dwrController</prop>
+		</props>
+	</property>
+</bean>
+ 
+<bean id="kabootarWelcome" class="me.sumithpuri.github.kabootar.web.KabootarChatWelcomeController">
+	<property name="viewName" value="kabootar_chat_login" />
+</bean>
+
+<bean id="kabootarMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<property name="mappings">
+		<props>
+			<prop key="/login.kabootar">kabootarWelcome</prop>
+			<prop key="/verify.kabootar">kabootarLogin</prop>
+		</props>
+	</property>
+</bean>
+
+<bean id="kabootarResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix">
+		<value>/jsp/</value>
+	</property>
+	<property name="suffix">
+		<value>.jsp</value>
+	</property>
+</bean>
+
+<bean id="kabootarLogin" class="me.sumithpuri.github.kabootar.web.KabootarChatLoginController" scope="singleton">
+</bean>
+
+<context:component-scan base-package="me.sumithpuri.github.kabootar.dwr" />
+
+<dwr:configuration></dwr:configuration>
+
+<bean id="kabootarDwr" class="me.sumithpuri.github.kabootar.dwr.KabootarChatDynamicController">
+	<dwr:remote javascript="Server">
+		<dwr:include method="sendKabootar" />
+		<dwr:include method="refreshUsers" />
+	</dwr:remote>
+</bean>
+
+</beans>

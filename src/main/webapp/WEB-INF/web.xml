@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+                                           http://java.sun.com/xml/ns/j2ee/web-app_3_0.xsd">
+
+	<servlet>
+		<servlet-name>kabootar</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>kabootar</servlet-name>
+		<url-pattern>*.kabootar</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>kabootar</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- the below configuration is for dwr usage outside of spring -->
+	<!--   
+	<servlet>
+		<servlet-name>dwr</servlet-name>
+		<servlet-class>org.directwebremoting.spring.DwrSpringServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+		    <param-name>activeReverseAjaxEnabled</param-name>
+		    <param-value>true</param-value>
+	  </init-param>
+	  <init-param>
+	      <param-name>pollAndCometEnabled</param-name>
+	      <param-value>true</param-value>
+	   </init-param>	
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>dwr</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping> 
+	-->
+</web-app>

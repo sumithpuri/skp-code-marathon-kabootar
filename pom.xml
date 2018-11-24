@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>me.sumithpuri.github</groupId>
+	<artifactId>skp-code-marathon-kabootar</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Kabootar : Chat Using Spring-DWR-Ext JS Chat Application</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-core</artifactId>
+		    <version>3.2.18.RELEASE</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.2.18.RELEASE</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-webmvc</artifactId>
+		    <version>3.2.18.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.directwebremoting</groupId>
+			<artifactId>dwr</artifactId>
+			<version>3.0.0-RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<resources>
+	      <resource>
+	      	<directory>src/main/resources/css</directory>
+	      	<targetPath>${basedir}/target/kabootar/css</targetPath>
+	      </resource>
+	      <resource>
+	      	<directory>src/main/resources/images</directory>
+	      	<targetPath>${basedir}/target/kabootar/images</targetPath>
+	      </resource>		
+	      <resource>
+	      	<directory>src/main/resources/js</directory>
+	      	<targetPath>${basedir}/target/kabootar/js</targetPath>
+	      </resource>		
+	      <resource>
+	      	<directory>src/main/resources/jsp</directory>
+	      	<targetPath>${basedir}/target/kabootar/jsp</targetPath>
+	      </resource>		
+	    </resources>
+		<finalName>kabootar</finalName>
+	</build>
+	<description>Code Samples for the Blog Article [Spring-DWR-Ext JS Chat Application]</description>
+</project>
