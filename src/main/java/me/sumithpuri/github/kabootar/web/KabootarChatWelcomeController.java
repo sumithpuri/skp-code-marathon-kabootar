@@ -43,7 +43,7 @@ public class KabootarChatWelcomeController extends ParameterizableViewController
 		System.out.println("Project Description   Apache Lucene Demo Code");
 		System.out.println("Technical Blog        http://www.techilashots.com");
 		System.out.println("Technical Blog Post   https://goo.gl/k7uXqz");
-		System.out.println("[Developer Notes]     [01] Use Java Version 9.0+ Compiler");
+		System.out.println("[Developer Notes]     [01] Use Java Version 8.0+ Compiler");
 		System.out.println();
 	}
 	
